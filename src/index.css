@@ -1,0 +1,340 @@
+/* Custom styles copied from the original HTML */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ... (kept the rest of the original CSS) */
+.orbitron {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Background gradient + animations */
+body {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #667eea 50%, #764ba2 75%, #f093fb 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255, 200, 87, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: float 25s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-30px) rotate(2deg) scale(1.05); }
+  50% { transform: translateY(15px) rotate(-1deg) scale(0.95); }
+  75% { transform: translateY(-10px) rotate(1deg) scale(1.02); }
+}
+
+/* Glass UI */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* team sections */
+.team-section {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.team-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-section:hover::before {
+  opacity: 1;
+}
+
+.team-section:hover {
+  transform: scale(1.02);
+}
+
+.team-section:active {
+  transform: scale(0.98);
+}
+
+.team-a {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 25%, #ff8a80 50%, #ffab91 100%);
+  position: relative;
+  background-size: 200% 200%;
+  animation: teamGradient 8s ease infinite;
+}
+
+.team-b {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 25%, #6dd5ed 50%, #81c784 100%);
+  position: relative;
+  background-size: 200% 200%;
+  animation: teamGradient 8s ease infinite reverse;
+}
+
+@keyframes teamGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* score styles */
+.score-text {
+  text-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 2px 10px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* particles */
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFloat 20s infinite linear;
+  opacity: 0.7;
+}
+
+.particle:nth-child(odd) {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+  width: 6px;
+  height: 6px;
+}
+
+.particle:nth-child(even) {
+  background: radial-gradient(circle, rgba(120, 219, 255, 0.6) 0%, rgba(120, 219, 255, 0.1) 100%);
+  width: 4px;
+  height: 4px;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* control panel */
+.control-panel {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(25px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+.control-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.8s ease-out, height 0.8s ease-out;
+  pointer-events: none;
+}
+
+.ripple-effect:active::after {
+  width: 400px;
+  height: 400px;
+}
+
+.glow-effect {
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.4);
+  }
+  to {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 1),
+      0 0 50px rgba(255, 255, 255, 0.8),
+      0 0 70px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.setup-title {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleShine 4s ease-in-out infinite;
+}
+
+@keyframes titleShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.audio-toggle-off {
+  background: rgba(255, 100, 100, 0.2) !important;
+  border-color: rgba(255, 100, 100, 0.4) !important;
+}
+
+.score-animation {
+  animation: scoreZoom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes scoreZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.voice-selector {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 12px;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.voice-selector:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.voice-selector option {
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
+}
+
+/* small utility adjustments for app layout */
+#root {
+  min-height: 100vh;
+}
