@@ -22,7 +22,7 @@
 ---
 
 ## 🚀 Demo
-> 🔗 *(Add your Netlify / Vercel demo link here once deployed)*
+> 🔗 [*scoreboardcounter.vercel.app*](https://scoreboardcounter.vercel.app)
 
 ---
 
