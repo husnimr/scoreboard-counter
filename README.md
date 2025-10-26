@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-# Scoreboard React (Vite + Tailwind + Framer Motion)
-
-This project was generated from an HTML prototype and converted into a React + Vite project.
-
-## Run
-
-```bash
-npm install
-npm run dev
-```
-
-Notes:
-- Voice selection uses the browser SpeechSynthesis API; voices availability depends on the browser.
-- Audio placeholders are in `public/audio/` — replace them with real mp3 files if you want sound effects.
-=======
 <h1 align="center">⚡ Scoreboard Counter</h1>
 
 <p align="center">
@@ -91,4 +75,3 @@ http://localhost:5173
 
 ##
 MIT License © 2025 Husni Mubarak Ramadhan
->>>>>>> 171f4fd8c5a8a6483c0045aab10689187113d406
