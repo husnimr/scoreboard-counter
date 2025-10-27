@@ -62,7 +62,6 @@ http://localhost:5173
 - Glassmorphism UI with glowing transitions
 - Audio toggle (ON/OFF) button
 - Animated floating particles background
-- Social media credits displayed on the setup screen
 
 ## 🎮 Keyboard Shortcuts
 
@@ -73,5 +72,23 @@ http://localhost:5173
 | **R**     | Reset both scores                  |
 | **M**     | Toggle audio ON/OFF                |
 
-##
-MIT License © 2025 Husni Mubarak Ramadhan
+
+---
+
+## 👨‍💻 Author & Credits
+MIT License © 2025 **Husni Mubarok Ramadhan**
+
+<p align="center">
+  <a href="https://instagram.com/husnimbrrk" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="husnimbrrk"/>
+  </a>
+  <a href="https://github.com/husnimr" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" alt="husnimr"/>
+  </a>
+  <a href="https://linkedin.com/in/husnimubarokramadhan" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+</p>
+
+---
+
